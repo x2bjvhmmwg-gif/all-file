@@ -1,0 +1,144 @@
+<!-- css_master.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS 완전 마스터</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    body { font-family: "Fira Sans", sans-serif; background-color: #1e1e1e; color: white; padding: 20px;}
+    h1 { text-align:center; margin-bottom: 50px; }
+    h2 { margin-top:40px; border-bottom:1px solid #444; padding-bottom:5px;}
+    pre { background-color: #2e2e2e; padding:10px; overflow-x:auto;}
+    .class-block { margin-bottom:40px; border-bottom:1px solid #444; padding-bottom:20px;}
+    ul { margin-left:20px;}
+</style>
+</head>
+<body>
+<h1>CSS 완전 마스터</h1>
+<a href="../" class="text-decoration-none">첫 화면 돌아가기</a>
+<!-- Colors / 색상 -->
+<div class="class-block">
+<h2>Colors / 색상</h2>
+<p>텍스트나 배경의 색상을 설정</p>
+<ul>
+<li>color → 텍스트 색상</li>
+<li>background-color → 배경 색상</li>
+<li>transparent → 투명</li>
+</ul>
+<pre>
+p { color: white; background-color: #333; }
+</pre>
+</div>
+
+<!-- Text / 텍스트 -->
+<div class="class-block">
+<h2>Text / 텍스트</h2>
+<p>글자 크기, 굵기, 정렬 등</p>
+<ul>
+<li>text-align: left/center/right → 정렬</li>
+<li>font-weight: normal/bold → 글자 굵기</li>
+<li>text-transform: uppercase/lowercase/capitalize → 대소문자 변환</li>
+</ul>
+<pre>
+p { text-align: center; font-weight: bold; text-transform: uppercase; }
+</pre>
+</div>
+
+<!-- Box Model / 박스 모델 -->
+<div class="class-block">
+<h2>Box Model / 박스 모델</h2>
+<p>요소의 크기, 여백, 테두리 관리</p>
+<ul>
+<li>margin → 외부 여백</li>
+<li>padding → 내부 여백</li>
+<li>border → 테두리</li>
+<li>width / height → 너비 / 높이</li>
+</ul>
+<pre>
+div { margin: 10px; padding: 20px; border: 1px solid #fff; width: 200px; height: 100px; }
+</pre>
+</div>
+
+<!-- Flex / 플렉스 -->
+<div class="class-block">
+<h2>Flex / 플렉스</h2>
+<p>배치와 정렬을 손쉽게 제어</p>
+<ul>
+<li>display: flex → Flex 박스로 설정</li>
+<li>flex-direction: row/column → 방향</li>
+<li>justify-content: flex-start/center/end/space-between → 가로 정렬</li>
+<li>align-items: flex-start/center/end/stretch → 세로 정렬</li>
+<li>flex-wrap: wrap/nowrap → 감싸기 여부</li>
+</ul>
+<pre>
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+</pre>
+</div>
+
+<!-- Grid / 그리드 -->
+<div class="class-block">
+<h2>Grid / 그리드</h2>
+<p>2차원 배치 시스템</p>
+<ul>
+<li>display: grid → Grid 설정</li>
+<li>grid-template-columns → 열 정의</li>
+<li>grid-template-rows → 행 정의</li>
+<li>gap → 행/열 간격</li>
+</ul>
+<pre>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+</pre>
+</div>
+
+<!-- Position / 위치 -->
+<div class="class-block">
+<h2>Position / 위치</h2>
+<p>요소의 위치 지정</p>
+<ul>
+<li>position: static/relative/absolute/fixed/sticky</li>
+<li>top, right, bottom, left → 위치 조정</li>
+<li>z-index → 쌓임 순서</li>
+</ul>
+<pre>
+div {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  z-index: 10;
+}
+</pre>
+</div>
+
+<!-- Transition / 트랜지션 -->
+<div class="class-block">
+<h2>Transition / 트랜지션</h2>
+<p>속성 변화에 애니메이션 효과 적용</p>
+<ul>
+<li>transition-property → 변화 속성</li>
+<li>transition-duration → 지속 시간</li>
+<li>transition-timing-function → 속도 곡선</li>
+</ul>
+<pre>
+div {
+  transition: all 0.3s ease-in-out;
+}
+div:hover {
+  background-color: #555;
+}
+</pre>
+</div>
+
+</body>
+</html>
