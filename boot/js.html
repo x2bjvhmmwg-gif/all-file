@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JS</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <style>
     body { font-family: "Fira Sans", sans-serif; background-color: #1e1e1e; color: white; padding: 20px;}
     h1 { text-align:center; margin-bottom: 50px; }
@@ -15,121 +14,112 @@
 </style>
 </head>
 <body>
-<h1>JS 완전 마스터 (Complete Version)</h1>
-<a href="../" class="text-decoration-none">첫 화면 돌아가기</a>
-<!-- Variables / 변수 -->
+<h1>JS 완전 마스터 (자주 보는 순서)</h1>
+
+<!-- 1. Variables / 변수 -->
 <div class="class-block">
 <h2>Variables / 변수</h2>
-<p>데이터를 저장하는 그릇. 스코프와 재할당 여부에 따라 차이가 있음.</p>
-<ul>
-<li>var → 함수 스코프, 재선언 가능, 블록 밖 접근 가능</li>
-<li>let → 블록 스코프, 재선언 불가, 재할당 가능</li>
-<li>const → 블록 스코프, 재선언 불가, 재할당 불가, 단 객체 내부 프로퍼티 수정 가능</li>
-</ul>
+<p>JS에서 데이터를 저장하는 그릇. let, const, var 사용</p>
 <pre>
-var x = 10;
-let y = 20;
-const z = 30;
-
-const obj = {name: "홍길동"};
-obj.name = "이순신"; // 가능
-// z = 40; -> 오류 발생
+let num = 10;     // 변경 가능
+const pi = 3.14;  // 변경 불가
+var oldVar = 20;  // 예전 방식
 </pre>
+<ul>
+<li>let → 블록 범위 변수</li>
+<li>const → 상수, 값 변경 불가</li>
+<li>var → 함수 범위 변수, 요즘은 잘 사용하지 않음</li>
+</ul>
 </div>
 
-<!-- Data Types / 자료형 -->
+<!-- 2. Data Types / 데이터 타입 -->
 <div class="class-block">
-<h2>Data Types / 자료형</h2>
-<p>JS 기본 자료형과 배열, 객체</p>
-<ul>
-<li>String → 문자열</li>
-<li>Number → 숫자</li>
-<li>Boolean → true/false</li>
-<li>Array → 배열, 인덱스로 접근 가능</li>
-<li>Object → 객체, key로 접근 가능</li>
-<li>Null → 빈 값</li>
-<li>Undefined → 값이 할당되지 않음</li>
-</ul>
+<h2>Data Types / 데이터 타입</h2>
+<p>JS의 기본 타입과 typeof 확인</p>
 <pre>
-let str = "안녕하세요";
-let num = 10;
-let flag = true;
-let arr = [1,2,3];
-console.log(arr[0]); // 1
-let obj = {name:"홍길동", age:25};
-console.log(obj.name); // 홍길동
+let str = "Hello";  // 문자열
+let num = 100;      // 숫자
+let flag = true;    // 불리언
+let nothing = null; // 널
+let undef;          // undefined
+let obj = {name:"Alice"}; // 객체
+let arr = [1,2,3];       // 배열
+
+console.log(typeof str); // "string"
+console.log(typeof obj); // "object"
 </pre>
 </div>
 
-<!-- Operators / 연산자 -->
+<!-- 3. Operators / 연산자 -->
 <div class="class-block">
 <h2>Operators / 연산자</h2>
-<p>값 계산, 비교, 논리, 할당</p>
-<ul>
-<li>+ - * / % → 산술</li>
-<li>== → 값 비교, === → 값과 타입까지 비교</li>
-<li>!=, !== → 부정 비교</li>
-<li>&lt; &gt; &lt;= &gt;= → 비교</li>
-<li>&& → 논리 AND, || → 논리 OR, ! → 논리 NOT</li>
-<li>= → 할당, +=, -= → 복합 할당</li>
-</ul>
+<p>산술, 비교, 논리, 할당, 증감, 삼항 연산자</p>
 <pre>
-let a = 5, b = "5";
-console.log(a == b);  // true
+let a = 10, b = 3;
+
+console.log(a + b);   // 덧셈 13
+console.log(a - b);   // 뺄셈 7
+console.log(a * b);   // 곱셈 30
+console.log(a / b);   // 나눗셈 3.333...
+console.log(a % b);   // 나머지 1
+
+console.log(a > b);   // true
 console.log(a === b); // false
 
-let c = 10;
-c += 5; // 15
-let flag = true && false; // false
+console.log(a > 5 && b < 5); // true
+console.log(a > 5 || b > 5); // true
+
+let c = a > b ? a : b; // 삼항 연산자
 </pre>
 </div>
 
-<!-- Conditionals / 조건문 -->
+<!-- 4. Conditionals / 조건문 -->
 <div class="class-block">
 <h2>Conditionals / 조건문</h2>
-<p>조건에 따라 코드 실행. 삼항 연산자 포함</p>
-<ul>
-<li>if / else if / else → 조건 분기</li>
-<li>switch → 여러 조건 분기</li>
-<li>ternary operator → 조건 표현식</li>
-</ul>
+<p>if, else if, else, switch</p>
 <pre>
-let age = 20;
-if(age &gt;= 18){
-  console.log("성인");
+let score = 85;
+
+if(score >= 90){
+  console.log("A");
+} else if(score >= 80){
+  console.log("B");
 } else {
-  console.log("미성년");
+  console.log("C");
 }
 
-let day = "월";
-switch(day){
-  case "월": console.log("월요일"); break;
-  default: console.log("기타"); break;
+switch(score){
+  case 100: console.log("Perfect!"); break;
+  case 85: console.log("Good"); break;
+  default: console.log("Try again");
 }
-
-let result = (age &gt;= 18) ? "성인" : "미성년";
 </pre>
 </div>
 
-<!-- Loops / 반복문 -->
+<!-- 5. Loops / 반복문 -->
 <div class="class-block">
 <h2>Loops / 반복문</h2>
-<p>코드 반복 실행. 배열과 객체 순회 포함</p>
-<ul>
-<li>for → 반복 횟수 지정</li>
-<li>while → 조건 만족 시 반복</li>
-<li>do...while → 조건 후 반복</li>
-<li>for...of → 배열 순회</li>
-<li>for...in → 객체 key 순회</li>
-</ul>
+<p>for, while, do...while, for...of, for...in</p>
 <pre>
-for(let i=0; i&lt;5; i++){
+for(let i=0;i<5;i++){
   console.log(i);
 }
 
+let j = 0;
+while(j<3){
+  console.log(j);
+  j++;
+}
+
+let k = 0;
+do{
+  console.log(k);
+  k++;
+}while(k<2);
+
 let arr = [10,20,30];
-for(let item of arr){
-  console.log(item);
+for(let val of arr){
+  console.log(val);
 }
 
 let obj = {a:1, b:2};
@@ -139,69 +129,161 @@ for(let key in obj){
 </pre>
 </div>
 
-<!-- Functions / 함수 -->
+<!-- 6. Functions / 함수 -->
 <div class="class-block">
 <h2>Functions / 함수</h2>
-<p>재사용 가능한 코드 블록. 매개변수 기본값, 화살표 함수, 즉시 실행 함수 포함</p>
-<ul>
-<li>function → 일반 함수</li>
-<li>arrow function → 화살표 함수</li>
-<li>return → 값 반환</li>
-<li>IIFE → 즉시 실행 함수</li>
-</ul>
+<p>선언식, 표현식, 화살표 함수, 기본값, rest, spread</p>
 <pre>
-function sum(a=0,b=0){ return a+b; }
-console.log(sum(5)); // 5
+// 선언식
+function add(x,y){ return x+y; }
 
-const multiply = (a,b) =&gt; a*b;
-console.log(multiply(2,3)); // 6
+// 표현식
+const sub = function(x,y){ return x-y; }
 
-(function(){
-  console.log("즉시 실행");
-})();
+// 화살표
+const mul = (x,y) => x*y;
+
+// 기본값
+function greet(name="Guest"){
+  console.log("Hello " + name);
+}
+
+// rest
+function sumAll(...nums){
+  return nums.reduce((a,b)=>a+b,0);
+}
+
+// spread
+let arr1 = [1,2];
+let arr2 = [...arr1,3,4]; // [1,2,3,4]
 </pre>
 </div>
 
-<!-- DOM / 문서 객체 모델 -->
+<!-- 7. String / 문자열 -->
 <div class="class-block">
-<h2>DOM / 문서 객체 모델</h2>
-<p>HTML 요소 선택 및 제어</p>
-<ul>
-<li>document.getElementById → ID 선택</li>
-<li>document.querySelector → CSS 선택자</li>
-<li>document.querySelectorAll → 여러 요소 선택</li>
-<li>element.innerHTML → 내용 변경</li>
-<li>element.style → 스타일 변경</li>
-<li>element.classList.add/remove/toggle → 클래스 제어</li>
-<li>element.addEventListener → 이벤트 연결</li>
-</ul>
+<h2>String / 문자열</h2>
+<p>텍스트 데이터를 다루는 타입과 메서드</p>
 <pre>
-const btn = document.querySelector("#myBtn");
-btn.addEventListener("click", function(event){
-  event.preventDefault();
-  event.target.style.backgroundColor = "red";
-  console.log("클릭됨");
-});
+let str = "Hello";
+
+// 길이
+console.log(str.length);
+
+// 검색
+console.log(str.indexOf("e"));
+console.log(str.includes("H"));
+
+// 자르기
+console.log(str.slice(1,4));
+console.log(str.substring(1,4));
+
+// 변환
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+
+// 치환
+console.log(str.replace("H","J"));
+
+// 결합
+let str2 = " World";
+console.log(str + str2);
+console.log(`${str}${str2}`);
 </pre>
 </div>
 
-<!-- Events / 이벤트 -->
+<!-- 8. Array / 배열 -->
 <div class="class-block">
-<h2>Events / 이벤트</h2>
-<p>사용자 행동 반응, 이벤트 객체 활용</p>
-<ul>
-<li>click → 클릭</li>
-<li>mouseover / mouseout → 마우스 오버/아웃</li>
-<li>keydown / keyup → 키보드 입력</li>
-<li>submit → 폼 제출</li>
-<li>event.target → 이벤트 발생 요소</li>
-<li>event.preventDefault() → 기본 동작 방지</li>
-</ul>
+<h2>Array / 배열</h2>
+<p>여러 데이터를 순서대로 담는 구조와 함수</p>
 <pre>
-document.querySelector("#btnSubmit").addEventListener("click", function(event){
-  event.preventDefault();
-  console.log("버튼 클릭, 폼 제출 방지");
-});
+let arr = [1,2,3,4];
+
+// 추가/삭제
+arr.push(5);
+arr.pop();
+arr.unshift(0);
+arr.shift();
+
+// 탐색
+arr.indexOf(3);
+arr.includes(2);
+
+// 반복/변환
+arr.forEach(num => console.log(num));
+let squares = arr.map(num => num*num);
+let filtered = arr.filter(num => num>2);
+let sum = arr.reduce((acc,num)=>acc+num,0);
+
+// 조작/정렬
+arr.reverse();
+arr.sort();
+arr.slice(1,3);
+arr.splice(1,2);
+arr.join(", ");
+</pre>
+</div>
+
+<!-- 9. Object / 객체 -->
+<div class="class-block">
+<h2>Object / 객체</h2>
+<p>키와 값으로 데이터를 담는 구조와 함수</p>
+<pre>
+let person = {
+  name: "Alice",
+  age: 25,
+  greet() { console.log(`Hi, I'm ${this.name}`); }
+};
+
+// 접근
+console.log(person.name);
+console.log(person["age"]);
+
+// 객체 함수
+Object.keys(person);
+Object.values(person);
+Object.entries(person);
+Object.assign(person,{job:"Developer"});
+Object.hasOwn(person,"age");
+</pre>
+</div>
+
+<!-- 10. Reference Type / 참조 타입 -->
+<div class="class-block">
+<h2>Reference Type / 참조 타입</h2>
+<p>객체, 배열, 함수 등 참조로 전달되는 타입</p>
+<pre>
+let arr1 = [1,2,3];
+let arr2 = arr1; // 같은 참조
+arr2.push(4);
+console.log(arr1); // [1,2,3,4]
+
+// 깊은 복사
+let arr3 = structuredClone(arr1);
+arr3.push(5);
+console.log(arr1); // [1,2,3,4]
+console.log(arr3); // [1,2,3,4,5]
+</pre>
+</div>
+
+<!-- 11. DOM / 이벤트 -->
+<div class="class-block">
+<h2>DOM / 이벤트</h2>
+<p>문서 선택, 속성/값 변경, 이벤트 처리</p>
+<pre>
+// 선택
+const el = document.getElementById("myId");
+const el2 = document.querySelector(".myClass");
+
+// 값 변경
+el.innerHTML = "Hello JS";
+el2.value = "Input text";
+
+// 클래스 조작
+el.classList.add("active");
+el.classList.remove("active");
+
+// 이벤트
+el.addEventListener("click",()=>console.log("Clicked"));
 </pre>
 </div>
 
