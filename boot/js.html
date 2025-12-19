@@ -1,0 +1,210 @@
+<!-- js_master_complete.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS/title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    body { font-family: "Fira Sans", sans-serif; background-color: #1e1e1e; color: white; padding: 20px;}
+    h1 { text-align:center; margin-bottom: 50px; }
+    h2 { margin-top:40px; border-bottom:1px solid #444; padding-bottom:5px;}
+    pre { background-color: #2e2e2e; padding:10px; overflow-x:auto;}
+    .class-block { margin-bottom:40px; border-bottom:1px solid #444; padding-bottom:20px;}
+    ul { margin-left:20px;}
+</style>
+</head>
+<body>
+<h1>JS 완전 마스터 (Complete Version)</h1>
+<a href="../" class="text-decoration-none">첫 화면 돌아가기</a>
+<!-- Variables / 변수 -->
+<div class="class-block">
+<h2>Variables / 변수</h2>
+<p>데이터를 저장하는 그릇. 스코프와 재할당 여부에 따라 차이가 있음.</p>
+<ul>
+<li>var → 함수 스코프, 재선언 가능, 블록 밖 접근 가능</li>
+<li>let → 블록 스코프, 재선언 불가, 재할당 가능</li>
+<li>const → 블록 스코프, 재선언 불가, 재할당 불가, 단 객체 내부 프로퍼티 수정 가능</li>
+</ul>
+<pre>
+var x = 10;
+let y = 20;
+const z = 30;
+
+const obj = {name: "홍길동"};
+obj.name = "이순신"; // 가능
+// z = 40; -> 오류 발생
+</pre>
+</div>
+
+<!-- Data Types / 자료형 -->
+<div class="class-block">
+<h2>Data Types / 자료형</h2>
+<p>JS 기본 자료형과 배열, 객체</p>
+<ul>
+<li>String → 문자열</li>
+<li>Number → 숫자</li>
+<li>Boolean → true/false</li>
+<li>Array → 배열, 인덱스로 접근 가능</li>
+<li>Object → 객체, key로 접근 가능</li>
+<li>Null → 빈 값</li>
+<li>Undefined → 값이 할당되지 않음</li>
+</ul>
+<pre>
+let str = "안녕하세요";
+let num = 10;
+let flag = true;
+let arr = [1,2,3];
+console.log(arr[0]); // 1
+let obj = {name:"홍길동", age:25};
+console.log(obj.name); // 홍길동
+</pre>
+</div>
+
+<!-- Operators / 연산자 -->
+<div class="class-block">
+<h2>Operators / 연산자</h2>
+<p>값 계산, 비교, 논리, 할당</p>
+<ul>
+<li>+ - * / % → 산술</li>
+<li>== → 값 비교, === → 값과 타입까지 비교</li>
+<li>!=, !== → 부정 비교</li>
+<li>&lt; &gt; &lt;= &gt;= → 비교</li>
+<li>&& → 논리 AND, || → 논리 OR, ! → 논리 NOT</li>
+<li>= → 할당, +=, -= → 복합 할당</li>
+</ul>
+<pre>
+let a = 5, b = "5";
+console.log(a == b);  // true
+console.log(a === b); // false
+
+let c = 10;
+c += 5; // 15
+let flag = true && false; // false
+</pre>
+</div>
+
+<!-- Conditionals / 조건문 -->
+<div class="class-block">
+<h2>Conditionals / 조건문</h2>
+<p>조건에 따라 코드 실행. 삼항 연산자 포함</p>
+<ul>
+<li>if / else if / else → 조건 분기</li>
+<li>switch → 여러 조건 분기</li>
+<li>ternary operator → 조건 표현식</li>
+</ul>
+<pre>
+let age = 20;
+if(age &gt;= 18){
+  console.log("성인");
+} else {
+  console.log("미성년");
+}
+
+let day = "월";
+switch(day){
+  case "월": console.log("월요일"); break;
+  default: console.log("기타"); break;
+}
+
+let result = (age &gt;= 18) ? "성인" : "미성년";
+</pre>
+</div>
+
+<!-- Loops / 반복문 -->
+<div class="class-block">
+<h2>Loops / 반복문</h2>
+<p>코드 반복 실행. 배열과 객체 순회 포함</p>
+<ul>
+<li>for → 반복 횟수 지정</li>
+<li>while → 조건 만족 시 반복</li>
+<li>do...while → 조건 후 반복</li>
+<li>for...of → 배열 순회</li>
+<li>for...in → 객체 key 순회</li>
+</ul>
+<pre>
+for(let i=0; i&lt;5; i++){
+  console.log(i);
+}
+
+let arr = [10,20,30];
+for(let item of arr){
+  console.log(item);
+}
+
+let obj = {a:1, b:2};
+for(let key in obj){
+  console.log(key, obj[key]);
+}
+</pre>
+</div>
+
+<!-- Functions / 함수 -->
+<div class="class-block">
+<h2>Functions / 함수</h2>
+<p>재사용 가능한 코드 블록. 매개변수 기본값, 화살표 함수, 즉시 실행 함수 포함</p>
+<ul>
+<li>function → 일반 함수</li>
+<li>arrow function → 화살표 함수</li>
+<li>return → 값 반환</li>
+<li>IIFE → 즉시 실행 함수</li>
+</ul>
+<pre>
+function sum(a=0,b=0){ return a+b; }
+console.log(sum(5)); // 5
+
+const multiply = (a,b) =&gt; a*b;
+console.log(multiply(2,3)); // 6
+
+(function(){
+  console.log("즉시 실행");
+})();
+</pre>
+</div>
+
+<!-- DOM / 문서 객체 모델 -->
+<div class="class-block">
+<h2>DOM / 문서 객체 모델</h2>
+<p>HTML 요소 선택 및 제어</p>
+<ul>
+<li>document.getElementById → ID 선택</li>
+<li>document.querySelector → CSS 선택자</li>
+<li>document.querySelectorAll → 여러 요소 선택</li>
+<li>element.innerHTML → 내용 변경</li>
+<li>element.style → 스타일 변경</li>
+<li>element.classList.add/remove/toggle → 클래스 제어</li>
+<li>element.addEventListener → 이벤트 연결</li>
+</ul>
+<pre>
+const btn = document.querySelector("#myBtn");
+btn.addEventListener("click", function(event){
+  event.preventDefault();
+  event.target.style.backgroundColor = "red";
+  console.log("클릭됨");
+});
+</pre>
+</div>
+
+<!-- Events / 이벤트 -->
+<div class="class-block">
+<h2>Events / 이벤트</h2>
+<p>사용자 행동 반응, 이벤트 객체 활용</p>
+<ul>
+<li>click → 클릭</li>
+<li>mouseover / mouseout → 마우스 오버/아웃</li>
+<li>keydown / keyup → 키보드 입력</li>
+<li>submit → 폼 제출</li>
+<li>event.target → 이벤트 발생 요소</li>
+<li>event.preventDefault() → 기본 동작 방지</li>
+</ul>
+<pre>
+document.querySelector("#btnSubmit").addEventListener("click", function(event){
+  event.preventDefault();
+  console.log("버튼 클릭, 폼 제출 방지");
+});
+</pre>
+</div>
+
+</body>
+</html>
