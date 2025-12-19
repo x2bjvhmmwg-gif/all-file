@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JS</title>
+<title>JavaScrip</title>
 <style>
     body { font-family: "Fira Sans", sans-serif; background-color: #1e1e1e; color: white; padding: 20px;}
     h1 { text-align:center; margin-bottom: 50px; }
@@ -14,276 +14,201 @@
 </style>
 </head>
 <body>
-<h1>JS(자주 보는 순서)</h1>
+
+<h1>JavaScript</h1>
 <a href="../" class="text-decoration-none">첫 화면 돌아가기</a>
-<!-- 1. Variables / 변수 -->
+<!-- Variables / 변수 -->
 <div class="class-block">
 <h2>Variables / 변수</h2>
-<p>JS에서 데이터를 저장하는 그릇. let, const, var 사용</p>
+<p>값을 저장할 수 있는 공간. var, let, const 사용.</p>
 <pre>
-let num = 10;     // 변경 가능
-const pi = 3.14;  // 변경 불가
-var oldVar = 20;  // 예전 방식
+var x = 10;     // 기존 방식, 함수 스코프
+let y = 20;     // 블록 스코프
+const z = 30;   // 상수, 재할당 불가
 </pre>
+</div>
+
+<!-- Data Types / 자료형 -->
+<div class="class-block">
+<h2>Data Types / 자료형</h2>
+<p>JS 기본 자료형</p>
 <ul>
-<li>let → 블록 범위 변수</li>
-<li>const → 상수, 값 변경 불가</li>
-<li>var → 함수 범위 변수, 요즘은 잘 사용하지 않음</li>
+<li>String → "문자열"</li>
+<li>Number → 123, 3.14</li>
+<li>Boolean → true / false</li>
+<li>Null → 값 없음</li>
+<li>Undefined → 값이 정의되지 않음</li>
+<li>Object → { key: value }</li>
+<li>Array → [1,2,3]</li>
 </ul>
 </div>
 
-<!-- 2. Data Types / 데이터 타입 -->
-<div class="class-block">
-<h2>Data Types / 데이터 타입</h2>
-<p>JS의 기본 타입과 typeof 확인</p>
-<pre>
-let str = "Hello";  // 문자열
-let num = 100;      // 숫자
-let flag = true;    // 불리언
-let nothing = null; // 널
-let undef;          // undefined
-let obj = {name:"Alice"}; // 객체
-let arr = [1,2,3];       // 배열
-
-console.log(typeof str); // "string"
-console.log(typeof obj); // "object"
-</pre>
-</div>
-
-<!-- 3. Operators / 연산자 -->
-<div class="class-block">
-<h2>Operators / 연산자</h2>
-<p>산술, 비교, 논리, 할당, 증감, 삼항 연산자</p>
-<pre>
-let a = 10, b = 3;
-
-console.log(a + b);   // 덧셈 13
-console.log(a - b);   // 뺄셈 7
-console.log(a * b);   // 곱셈 30
-console.log(a / b);   // 나눗셈 3.333...
-console.log(a % b);   // 나머지 1
-
-console.log(a > b);   // true
-console.log(a === b); // false
-
-console.log(a > 5 && b < 5); // true
-console.log(a > 5 || b > 5); // true
-
-let c = a > b ? a : b; // 삼항 연산자
-</pre>
-</div>
-
-<!-- 4. Conditionals / 조건문 -->
-<div class="class-block">
-<h2>Conditionals / 조건문</h2>
-<p>if, else if, else, switch</p>
-<pre>
-let score = 85;
-
-if(score >= 90){
-  console.log("A");
-} else if(score >= 80){
-  console.log("B");
-} else {
-  console.log("C");
-}
-
-switch(score){
-  case 100: console.log("Perfect!"); break;
-  case 85: console.log("Good"); break;
-  default: console.log("Try again");
-}
-</pre>
-</div>
-
-<!-- 5. Loops / 반복문 -->
-<div class="class-block">
-<h2>Loops / 반복문</h2>
-<p>for, while, do...while, for...of, for...in</p>
-<pre>
-for(let i=0;i<5;i++){
-  console.log(i);
-}
-
-let j = 0;
-while(j<3){
-  console.log(j);
-  j++;
-}
-
-let k = 0;
-do{
-  console.log(k);
-  k++;
-}while(k<2);
-
-let arr = [10,20,30];
-for(let val of arr){
-  console.log(val);
-}
-
-let obj = {a:1, b:2};
-for(let key in obj){
-  console.log(key, obj[key]);
-}
-</pre>
-</div>
-
-<!-- 6. Functions / 함수 -->
-<div class="class-block">
-<h2>Functions / 함수</h2>
-<p>선언식, 표현식, 화살표 함수, 기본값, rest, spread</p>
-<pre>
-// 선언식
-function add(x,y){ return x+y; }
-
-// 표현식
-const sub = function(x,y){ return x-y; }
-
-// 화살표
-const mul = (x,y) => x*y;
-
-// 기본값
-function greet(name="Guest"){
-  console.log("Hello " + name);
-}
-
-// rest
-function sumAll(...nums){
-  return nums.reduce((a,b)=>a+b,0);
-}
-
-// spread
-let arr1 = [1,2];
-let arr2 = [...arr1,3,4]; // [1,2,3,4]
-</pre>
-</div>
-
-<!-- 7. String / 문자열 -->
+<!-- String / 문자열 -->
 <div class="class-block">
 <h2>String / 문자열</h2>
-<p>텍스트 데이터를 다루는 타입과 메서드</p>
+<p>텍스트를 다루는 도구. 길이 확인, 자르기, 검색, 변환, 결합 등</p>
 <pre>
-let str = "Hello";
+// 문자열 예제
+let str = "Hello, JavaScript!";
 
 // 길이
-console.log(str.length);
+console.log(str.length); // 18
 
-// 검색
-console.log(str.indexOf("e"));
-console.log(str.includes("H"));
+// 포함 여부
+console.log(str.includes("Java"));   // true
+console.log(str.includes("Python")); // false
+
+// 시작/끝 확인
+console.log(str.startsWith("Hello")); // true
+console.log(str.endsWith("!"));       // true
 
 // 자르기
-console.log(str.slice(1,4));
-console.log(str.substring(1,4));
+console.log(str.slice(0,5));    // "Hello"
+console.log(str.slice(-10));    // "JavaScript!"
+console.log(str.substring(7,17));// "JavaScript"
+console.log(str.substr(7,10));  // "JavaScript"
 
 // 변환
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
+console.log(str.toUpperCase()); // "HELLO, JAVASCRIPT!"
+console.log(str.toLowerCase()); // "hello, javascript!"
 
-// 치환
-console.log(str.replace("H","J"));
+// 공백 제거
+let spaceStr = "   Hi there!   ";
+console.log(spaceStr.trim());     // "Hi there!"
+console.log(spaceStr.trimStart());// "Hi there!   "
+console.log(spaceStr.trimEnd());  // "   Hi there!"
 
 // 결합
-let str2 = " World";
-console.log(str + str2);
-console.log(`${str}${str2}`);
+let greet = "Hello" + " " + "World";
+console.log(greet); // "Hello World"
+
+let name = "Alice";
+console.log(`Hi, ${name}! Welcome to JS.`);
+
+// 검색
+console.log(str.indexOf("Java"));  // 7
+console.log(str.lastIndexOf("o"));// 4
+console.log(str.search("Java"));  // 7
+
+// 치환
+console.log(str.replace("JavaScript","JS"));  // "Hello, JS!"
+console.log(str.replaceAll("o","0"));         // "Hell0, JavaScript!"
+
+// 분리/합치기
+console.log(str.split(",")); // ["Hello", " JavaScript!"]
+console.log(["Hello","JS"].join("-")); // "Hello-JS"
+
+// 반복
+console.log("Ha".repeat(3)); // "HaHaHa"
+
+// 문자 접근
+console.log(str.charAt(0)); // "H"
+console.log(str[0]);         // "H"
+
+// 패턴 매칭 (정규식)
+console.log(str.match(/Java/)); // ["Java"]
+console.log(str.search(/Java/)); // 7
+
+// 비교
+console.log("apple" > "banana"); // false
+console.log("apple" === "apple"); // true
 </pre>
 </div>
 
-<!-- 8. Array / 배열 -->
+<!-- Array / 배열 -->
 <div class="class-block">
 <h2>Array / 배열</h2>
-<p>여러 데이터를 순서대로 담는 구조와 함수</p>
+<p>여러 데이터를 순서대로 저장하고 다룰 수 있음</p>
 <pre>
-let arr = [1,2,3,4];
-
-// 추가/삭제
-arr.push(5);
-arr.pop();
-arr.unshift(0);
-arr.shift();
-
-// 탐색
-arr.indexOf(3);
-arr.includes(2);
-
-// 반복/변환
-arr.forEach(num => console.log(num));
-let squares = arr.map(num => num*num);
-let filtered = arr.filter(num => num>2);
-let sum = arr.reduce((acc,num)=>acc+num,0);
-
-// 조작/정렬
-arr.reverse();
-arr.sort();
-arr.slice(1,3);
-arr.splice(1,2);
-arr.join(", ");
-</pre>
-</div>
-
-<!-- 9. Object / 객체 -->
-<div class="class-block">
-<h2>Object / 객체</h2>
-<p>키와 값으로 데이터를 담는 구조와 함수</p>
-<pre>
-let person = {
-  name: "Alice",
-  age: 25,
-  greet() { console.log(`Hi, I'm ${this.name}`); }
-};
+let arr = [1,2,3,4,5];
 
 // 접근
-console.log(person.name);
-console.log(person["age"]);
+console.log(arr[0]); // 1
 
-// 객체 함수
-Object.keys(person);
-Object.values(person);
-Object.entries(person);
-Object.assign(person,{job:"Developer"});
-Object.hasOwn(person,"age");
+// 길이
+console.log(arr.length); // 5
+
+// 추가
+arr.push(6);      // 끝에 추가
+arr.unshift(0);   // 앞에 추가
+
+// 삭제
+arr.pop();        // 끝 제거
+arr.shift();      // 앞 제거
+
+// 검색
+console.log(arr.indexOf(3)); // 3 위치
+console.log(arr.includes(2)); // true
+
+// 반복
+arr.forEach((v,i) => console.log(i, v));
+
+// 변형
+console.log(arr.map(x => x*2)); // [0,2,4,6,8,10]
+console.log(arr.filter(x => x>2)); // [3,4,5]
+
+// 정렬
+console.log(arr.sort()); // 기본 문자열 순서
+console.log(arr.reverse()); // 역순
 </pre>
 </div>
 
-<!-- 10. Reference Type / 참조 타입 -->
+<!-- Object / 객체 -->
 <div class="class-block">
-<h2>Reference Type / 참조 타입</h2>
-<p>객체, 배열, 함수 등 참조로 전달되는 타입</p>
+<h2>Object / 객체</h2>
+<p>키와 값으로 데이터를 묶어서 저장</p>
 <pre>
-let arr1 = [1,2,3];
-let arr2 = arr1; // 같은 참조
-arr2.push(4);
-console.log(arr1); // [1,2,3,4]
+let obj = { name: "Alice", age: 23 };
 
-// 깊은 복사
-let arr3 = structuredClone(arr1);
-arr3.push(5);
-console.log(arr1); // [1,2,3,4]
-console.log(arr3); // [1,2,3,4,5]
+// 접근
+console.log(obj.name); // "Alice"
+console.log(obj["age"]); // 23
+
+// 추가/수정
+obj.city = "Seoul";
+obj.age = 24;
+
+// 삭제
+delete obj.city;
+
+// 반복
+for(let key in obj){
+    console.log(key, obj[key]);
+}
+
+// 축약 표현
+let x = 10, y = 20;
+let point = { x, y }; // { x: 10, y: 20 }
+
+// 메서드
+let user = {
+    name: "Bob",
+    greet() { console.log("Hi, "+this.name); }
+};
+user.greet(); // "Hi, Bob"
 </pre>
 </div>
 
-<!-- 11. DOM / 이벤트 -->
+<!-- Functions / 함수 -->
 <div class="class-block">
-<h2>DOM / 이벤트</h2>
-<p>문서 선택, 속성/값 변경, 이벤트 처리</p>
+<h2>Functions / 함수</h2>
+<p>코드 블록을 재사용 가능하게 만드는 도구</p>
 <pre>
-// 선택
-const el = document.getElementById("myId");
-const el2 = document.querySelector(".myClass");
+// 선언식
+function add(a,b){
+    return a+b;
+}
 
-// 값 변경
-el.innerHTML = "Hello JS";
-el2.value = "Input text";
+// 표현식
+let sub = function(a,b){ return a-b; }
 
-// 클래스 조작
-el.classList.add("active");
-el.classList.remove("active");
+// 화살표 함수
+let mul = (a,b) => a*b;
 
-// 이벤트
-el.addEventListener("click",()=>console.log("Clicked"));
+// 호출
+console.log(add(2,3)); // 5
+console.log(sub(5,2)); // 3
+console.log(mul(3,4)); // 12
 </pre>
 </div>
 
